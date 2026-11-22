@@ -1,0 +1,697 @@
+/* Лабораторная работа № 3. Основы CSS. Единый стиль сайта «Мой мир» */
+
+ 
+
+/* Цветовая схема проекта задаётся CSS-переменными */
+
+:root {
+
+  --color-primary: #174a78;
+
+  --color-primary-dark: #103653;
+
+  --color-secondary: #e8f1f8;
+
+  --color-accent: #d9a441;
+
+  --color-text: #303943;
+
+  --color-muted: #5d6b78;
+
+  --color-page: #f4f7fa;
+
+  --color-white: #ffffff;
+
+  --color-border: #cbd8e3;
+
+  --font-base: 1rem;
+
+  --line-base: 1.65;
+
+}
+
+ 
+
+/* Универсальный селектор и базовая типографика */
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+ 
+
+html {
+
+  font-size: 16px;
+
+  scroll-behavior: smooth;
+
+}
+
+ 
+
+body {
+
+  margin: 0;
+
+  padding: 0;
+
+  background-color: var(--color-page);
+
+  color: var(--color-text);
+
+  font-family: "Open Sans", Arial, sans-serif;
+
+  font-size: var(--font-base);
+
+  line-height: var(--line-base);
+
+}
+
+ 
+
+/* Уникальный идентификатор логотипа */
+
+#logo {
+
+  margin: 0;
+
+  color: var(--color-white);
+
+  font-family: "Montserrat", Arial, sans-serif;
+
+  font-size: 2.35rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.04em;
+
+}
+
+ 
+
+/* Заголовки: разные размеры и цвета */
+
+h1, h2, h3, h4, h5, h6 {
+
+  font-family: "Montserrat", Arial, sans-serif;
+
+  line-height: 1.25;
+
+  margin-top: 0;
+
+}
+
+ 
+
+h1 { font-size: 2.2rem; color: var(--color-primary); }
+
+h2 { font-size: 1.65rem; color: #236b4b; }
+
+h3 { font-size: 1.3rem; color: #875b18; }
+
+h4 { font-size: 1.15rem; color: #654b8b; }
+
+h5 { font-size: 1.05rem; color: #8a4650; }
+
+h6 { font-size: 1rem; color: var(--color-muted); }
+
+ 
+
+p {
+
+  margin: 0 0 1rem;
+
+  text-align: justify;
+
+  line-height: 1.5;
+
+  letter-spacing: 0.01em;
+
+}
+
+ 
+
+ul {
+
+  list-style-type: square;
+
+  padding-left: 1.5rem;
+
+}
+
+ 
+
+ol {
+
+  padding-left: 1.5rem;
+
+}
+
+ 
+
+li {
+
+  margin-bottom: 0.35rem;
+
+}
+
+ 
+
+/* Ссылки и псевдоклассы */
+
+a {
+
+  color: #075ca8;
+
+  text-decoration: none;
+
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+
+}
+
+ 
+
+a:visited {
+
+  color: #68469a;
+
+}
+
+ 
+
+a:hover {
+
+  color: #c05a16;
+
+  text-decoration: underline;
+
+}
+
+ 
+
+a:active {
+
+  color: #a32121;
+
+}
+
+ 
+
+a:focus-visible {
+
+  outline: 3px solid var(--color-accent);
+
+  outline-offset: 3px;
+
+}
+
+ 
+
+/* Семантические блоки: каждому задано собственное оформление */
+
+body > header {
+
+  background-color: var(--color-primary);
+
+  color: var(--color-white);
+
+  padding: 1.6rem max(1.25rem, calc((100% - 1100px) / 2));
+
+  border-bottom: 5px solid var(--color-accent);
+
+}
+
+ 
+
+body > header p {
+
+  color: #e5eef5;
+
+  margin: 0.35rem 0 1.1rem;
+
+  text-align: left;
+
+}
+
+ 
+
+body > header h1,
+
+body > header h2,
+
+body > header h3 {
+
+  color: var(--color-white);
+
+}
+
+ 
+
+header nav {
+
+  background-color: var(--color-primary-dark);
+
+  padding: 0.55rem 0.8rem;
+
+  border: 1px solid #54748e;
+
+  border-radius: 0.45rem;
+
+}
+
+ 
+
+header nav ul {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  align-items: center;
+
+  gap: 0.35rem;
+
+  list-style: none;
+
+  margin: 0;
+
+  padding: 0;
+
+}
+
+ 
+
+header nav li {
+
+  margin: 0;
+
+}
+
+ 
+
+header nav a {
+
+  display: block;
+
+  padding: 0.55rem 0.85rem;
+
+  color: var(--color-white);
+
+  border-radius: 0.3rem;
+
+  font-weight: 600;
+
+}
+
+ 
+
+header nav a:visited {
+
+  color: #e8e2ff;
+
+}
+
+ 
+
+header nav a:hover,
+
+header nav a[aria-current="page"] {
+
+  color: var(--color-white);
+
+  background-color: #2b628d;
+
+  text-decoration: none;
+
+}
+
+ 
+
+header nav a:active {
+
+  background-color: #0b2b43;
+
+}
+
+ 
+
+main {
+
+  width: min(1100px, calc(100% - 2rem));
+
+  margin: 1.8rem auto;
+
+  padding: 1.5rem;
+
+  background-color: #edf4f9;
+
+  border: 1px solid #d5e1ea;
+
+  border-radius: 0.7rem;
+
+}
+
+ 
+
+main > section {
+
+  margin: 0 0 1.4rem;
+
+  padding: 1.25rem;
+
+  background-color: var(--color-white);
+
+  border: 1px solid #d7e4ed;
+
+  border-left: 5px solid #5a91b8;
+
+  border-radius: 0.45rem;
+
+}
+
+ 
+
+main article {
+
+  margin: 0.8rem 0;
+
+  padding: 1rem;
+
+  background-color: #f8fafc;
+
+  border: 1px solid #e1e8ee;
+
+  border-radius: 0.4rem;
+
+}
+
+ 
+
+main aside {
+
+  margin: 1.3rem 0 0;
+
+  padding: 1.1rem 1.25rem;
+
+  background-color: #fff7e7;
+
+  border: 1px solid #e8d5a9;
+
+  border-left: 5px solid var(--color-accent);
+
+  border-radius: 0.4rem;
+
+}
+
+ 
+
+main > nav {
+
+  margin: 1rem 0;
+
+  padding: 1rem 1.2rem;
+
+  background-color: #e8f3ed;
+
+  border: 1px dashed #8eb7a0;
+
+  border-radius: 0.4rem;
+
+}
+
+ 
+
+body > footer {
+
+  margin-top: 2rem;
+
+  padding: 1.4rem max(1.25rem, calc((100% - 1100px) / 2));
+
+  background-color: #243746;
+
+  color: #edf3f7;
+
+  border-top: 5px solid #52758f;
+
+}
+
+ 
+
+body > footer p {
+
+  margin: 0.25rem 0;
+
+  text-align: left;
+
+}
+
+ 
+
+body > footer a,
+
+body > footer a:visited {
+
+  color: #f3d58e;
+
+}
+
+ 
+
+/* Классы среднего уровня */
+
+.important {
+
+  color: #b3262d;
+
+  font-weight: 700;
+
+}
+
+ 
+
+.highlight {
+
+  padding: 0.08rem 0.25rem;
+
+  background-color: #fff0a8;
+
+  border-radius: 0.2rem;
+
+}
+
+ 
+
+/* Цитаты */
+
+blockquote {
+
+  margin: 1.25rem 0;
+
+  padding: 1rem 1.25rem;
+
+  color: #42576a;
+
+  background-color: #f1f5f8;
+
+  border-left: 5px solid var(--color-accent);
+
+  font-style: italic;
+
+}
+
+ 
+
+blockquote cite {
+
+  display: inline-block;
+
+  margin-top: 0.5rem;
+
+  color: var(--color-muted);
+
+  font-size: 0.9rem;
+
+}
+
+ 
+
+/* Изображения, карточки и вспомогательные элементы */
+
+figure {
+
+  margin: 1rem 0;
+
+  text-align: center;
+
+}
+
+ 
+
+figure img {
+
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+
+  margin: 0 auto;
+
+  border: 3px solid #d5e1ea;
+
+  border-radius: 0.55rem;
+
+}
+
+ 
+
+figure figcaption {
+
+  margin-top: 0.45rem;
+
+  color: var(--color-muted);
+
+  font-size: 0.9rem;
+
+  font-style: italic;
+
+}
+
+ 
+
+.hero {
+
+  width: min(640px, 100%);
+
+}
+
+ 
+
+.grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+
+  gap: 1rem;
+
+}
+
+ 
+
+.friend {
+
+  text-align: center;
+
+}
+
+ 
+
+.friend img {
+
+  max-width: 180px;
+
+}
+
+ 
+
+.facts {
+
+  font-style: italic;
+
+  color: #66532e;
+
+}
+
+ 
+
+.skip {
+
+  position: absolute;
+
+  left: -9999px;
+
+  top: 0;
+
+  z-index: 10;
+
+  padding: 0.7rem 1rem;
+
+  background: white;
+
+  color: #123;
+
+}
+
+ 
+
+.skip:focus {
+
+  left: 1rem;
+
+  top: 1rem;
+
+}
+
+ 
+
+/* Адаптация для узких экранов */
+
+@media (max-width: 640px) {
+
+  body > header {
+
+    padding: 1.2rem 1rem;
+
+  }
+
+ 
+
+  #logo {
+
+    font-size: 1.8rem;
+
+  }
+
+ 
+
+  header nav ul {
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+  }
+
+ 
+
+  header nav a {
+
+    padding: 0.45rem 0.6rem;
+
+  }
+
+ 
+
+  main {
+
+    width: calc(100% - 1rem);
+
+    margin: 0.7rem auto;
+
+    padding: 0.7rem;
+
+  }
+
+ 
+
+  main > section {
+
+    padding: 0.85rem;
+
+  }
+
+}
